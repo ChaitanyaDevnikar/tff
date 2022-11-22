@@ -51,7 +51,7 @@ resource "aws_instance" "nginx1" {
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.subnet1.id
   vpc_security_group_ids = [aws_security_group.nginx-sg.id]
-key_name = "mohnish"
+key_name = "chaitany"
     user_data = <<EOF
         #! /bin/bash
         sudo yum update -y
