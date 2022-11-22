@@ -12,7 +12,7 @@ provider "aws" {
 resource "aws_instance" "web-server" {
   ami           = "ami-0e6329e222e662a52"
   instance_type = "t2.micro"
-  key_name = "chaitany"
+  key_name = "docker"
     user_data = <<EOF
         #! /bin/bash
         sudo yum update -y
