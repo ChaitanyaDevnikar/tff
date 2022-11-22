@@ -12,6 +12,16 @@ provider "aws" {
 resource "aws_instance" "web-server" {
   ami           = "ami-0e6329e222e662a52"
   instance_type = "t2.micro"
+  key_name = "chaitany"
+    user_data = <<EOF
+        #! /bin/bash
+        sudo yum update -y
+        sudo yum install -y docker
+        sudo service docker start
+        sudo usermod -a -G docker ec2-user
+        sudo docker pull chaitany3/new1
+        sudo docker run -p 8081:8081 --name terra -d chaitany3/new1
+    EOF
 
 #  tags {
 #    Name = "terraformtraining.com"
